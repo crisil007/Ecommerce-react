@@ -6,6 +6,7 @@ const mongoConnect=require('./db/connect')
 const userRoutes = require('./routes/userRoutes');
 const authRoutes =require('./routes/authRoutes');
 const productRoutes=require('./routes/productRoutes')
+const fileUpload=require('./utils/fileUpload')
 
 app.get('/test', (req, res) => {
     res.status(200).send("Test successful");
