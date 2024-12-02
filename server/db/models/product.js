@@ -1,29 +1,30 @@
-const mongoose=require('mongoose')
-const user_type=require("./user_type")
-const category = require('./category')
+const mongoose = require('mongoose');
 
-const AddData=new mongoose.Schema({
-sellerID:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:"user"
-},
-    name:{
-        type:String,
+const AddData = new mongoose.Schema({
+    sellerID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "users", // Ensure this matches your users model
+        required: true
     },
-
-     price:{
-        type:String,
-     },
-
-     images: [
+    name: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: String,
+        required: true
+    },
+    images: [
         {
             url: { type: String, required: true },
             alt: { type: String }
         }
     ],
-     category:{
-       type:mongoose.Schema.Types.ObjectId,
-           ref:"category"
-     }
-})
-module.exports =mongoose.model("products",AddData)
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "category",
+        required: true
+    }
+});
+
+module.exports = mongoose.model("products", AddData);

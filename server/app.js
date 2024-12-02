@@ -25,7 +25,7 @@ app.use(express.urlencoded({extended : true}));
 
 app.use(userRoutes);
 app.use(authRoutes);
-app.use(productRoutes)
+app.use('/',productRoutes)
 
 
 app.listen(process.env.PORT, () => {
